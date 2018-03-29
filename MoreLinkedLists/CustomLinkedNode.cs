@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// IGME-106 - Game Development and Algorithmic Problem Solving
-/// Practice exersize 14
+/// Practice exercise 15
 /// Class Description   : Custom Linked Node class
 /// Author              : Benjamin Kleynhans
 /// Modified By         : Benjamin Kleynhans
-/// Date                : March 26, 2018
+/// Date                : March 29, 2018
 /// Filename            : CustomLinkedNode.cs
 /// </summary>
 

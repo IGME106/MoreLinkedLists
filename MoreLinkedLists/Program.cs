@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// IGME-106 - Game Development and Algorithmic Problem Solving
-/// Practice exercise 14
+/// Practice exercise 15
 /// Class Description   : Main program
 /// Author              : Benjamin Kleynhans
 /// Modified By         : Benjamin Kleynhans
-/// Date                : March 26, 2018
+/// Date                : March 29, 2018
 /// Filename            : Program.cs
 /// </summary>
 
@@ -20,9 +20,9 @@ namespace MoreLinkedLists
     {
         static void Main(string[] args)
         {
-            CustomLinkedList myList = new CustomLinkedList();
+            CustomLinkedList myList = new CustomLinkedList();                               // Create custom linked list
 
-            myList.Add("Data 1");
+            myList.Add("Data 1");                                                           // Add data to list
             myList.Add("Data 2");
             myList.Add("Data 3");
             myList.Add("Data 4");
@@ -31,12 +31,12 @@ namespace MoreLinkedLists
 
             try
             {
-                for (int i = 0; i < myList.Count; i++)
+                for (int i = 0; i < myList.Count; i++)                                      // Print data in list
                 {
                     Console.WriteLine(myList.GetData(i));
                 }
 
-                Console.WriteLine();
+                Console.WriteLine();                                                        // Perform actions requested by assignment
                 Console.WriteLine("Calling delete method as described in the assignment");
                 Console.WriteLine();
                 //Console.WriteLine("Deleting invalid node -1 (the last node at index 5)...       " + myList.RemoveAt(-1) + " was deleted");
@@ -50,12 +50,12 @@ namespace MoreLinkedLists
                 Console.WriteLine("  Printing list for confirmation");
                 Console.WriteLine("----------------------------------");
 
-                for (int i = 0; i < myList.Count; i++)
+                for (int i = 0; i < myList.Count; i++)                                      // Reprint list
                 {
                     Console.WriteLine("Index : " + i + "          Value : " + myList.GetData(i));
                 }
             }
-            catch (IndexOutOfRangeException e)
+            catch (IndexOutOfRangeException e)                                              // Catch invalid index exception
             {
                 Console.WriteLine(e.Message);
             }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// IGME-106 - Game Development and Algorithmic Problem Solving
-/// Practice exersize 14
+/// Practice exercise 15
 /// Class Description   : Custom Linked List class
 /// Author              : Benjamin Kleynhans
 /// Modified By         : Benjamin Kleynhans
-/// Date                : March 26, 2018
+/// Date                : March 29, 2018
 /// Filename            : CustomLinkedList.cs
 /// </summary>
 
@@ -40,6 +40,10 @@ namespace MoreLinkedLists
             set { this.count = value; }
         }
 
+        /// <summary>
+        /// Add a new node to the linked list
+        /// </summary>
+        /// <param name="inputData">Data to add as a new node</param>
         public void Add(string inputData)
         {
             if (Head == null)
@@ -58,6 +62,11 @@ namespace MoreLinkedLists
             }
         }
 
+        /// <summary>
+        /// Print the data contained in the node at the specified index
+        /// </summary>
+        /// <param name="index">The index of the data requested</param>
+        /// <returns></returns>
         public string GetData(int index)
         {
             string returnValue = null;
@@ -81,6 +90,11 @@ namespace MoreLinkedLists
             return returnValue;
         }
 
+        /// <summary>
+        /// Remove a node and it's data from the list at the specified index
+        /// </summary>
+        /// <param name="index">Index of node that needs to be removed from the list</param>
+        /// <returns></returns>
         public string RemoveAt(int index)
         {
             string returnValue = null;
