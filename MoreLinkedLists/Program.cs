@@ -27,15 +27,38 @@ namespace MoreLinkedLists
             myList.Add("Data 3");
             myList.Add("Data 4");
             myList.Add("Data 5");
+            myList.Add("Data 6");
 
-            for (int i = 0; i < 5; i++)
+            try
             {
-                Console.WriteLine(myList.GetData(i));
+                for (int i = 0; i < myList.Count; i++)
+                {
+                    Console.WriteLine(myList.GetData(i));
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Calling delete method as described in the assignment");
+                Console.WriteLine();
+                //Console.WriteLine("Deleting invalid node -1 (the last node at index 5)...       " + myList.RemoveAt(-1) + " was deleted");
+                Console.WriteLine();
+                Console.WriteLine("Deleting node 6 (the last node at index 5)...       " + myList.RemoveAt(5) + " was deleted");
+                Console.WriteLine();
+                Console.WriteLine("Deleting node 1 (the first node at index 0)...       " + myList.RemoveAt(0) + " was deleted");
+                Console.WriteLine();
+                Console.WriteLine("Deleting node 3 (the second node at index 2)...       " + myList.RemoveAt(2) + " was deleted");
+                Console.WriteLine();
+                Console.WriteLine("  Printing list for confirmation");
+                Console.WriteLine("----------------------------------");
+
+                for (int i = 0; i < myList.Count; i++)
+                {
+                    Console.WriteLine("Index : " + i + "          Value : " + myList.GetData(i));
+                }
             }
-
-            Console.WriteLine();
-
-            Console.WriteLine("The value at index 1 (position 2) is " + myList.GetData(1));
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             Console.ReadKey();
         }

@@ -19,12 +19,19 @@ namespace MoreLinkedLists
     class CustomLinkedList
     {
         private CustomLinkedNode head;
+        private CustomLinkedNode tail;
         private int count;
 
         public CustomLinkedNode Head
         {
             get { return this.head; }
             set { this.head = value; }
+        }
+
+        public CustomLinkedNode Tail
+        {
+            get { return this.tail; }
+            set { this.tail = value; }
         }
 
         public int Count
@@ -38,19 +45,14 @@ namespace MoreLinkedLists
             if (Head == null)
             {
                 Head = new CustomLinkedNode(inputData);
+                Tail = Head;
 
                 Count++;
             }
             else
-            {
-                CustomLinkedNode current = Head;
-
-                while (current.Next != null)
-                {
-                    current = current.Next;
-                }
-
-                current.Next = new CustomLinkedNode(inputData);
+            {                
+                Tail.Next = new CustomLinkedNode(inputData);                
+                Tail = Tail.Next;
 
                 Count++;
             }
@@ -64,7 +66,7 @@ namespace MoreLinkedLists
 
             if ((index < 0) || (index >= Count))
             {
-                throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException("\n*** The index provided is out of bounds, please enter an index >= 0 and < " + Count + " ***\n");
             }
             else
             {
@@ -75,6 +77,51 @@ namespace MoreLinkedLists
 
                 returnValue = current.Data;
             }
+
+            return returnValue;
+        }
+
+        public string RemoveAt(int index)
+        {
+            string returnValue = null;
+
+            CustomLinkedNode current = Head;
+
+            if ((index < 0) || (index >= Count))
+            {
+                throw new IndexOutOfRangeException("\n*** The index provided is out of bounds, please enter an index >= 0 and < " + Count + " ***\n");
+            }
+            else if ((index == 0) && (Count > 1))
+            {
+                returnValue = Head.Data;
+
+                Head = Head.Next;
+            }
+            else if (index == (Count - 1))
+            {
+                for (int i = 0; i < (index - 1); i++)
+                {
+                    current = current.Next;
+                }
+
+                returnValue = current.Next.Data;
+
+                Tail = current;
+                current.Next = null;
+            }
+            else
+            { 
+                for (int i = 0; i < (index - 1); i++)
+                {
+                    current = current.Next;
+                }
+
+                returnValue = current.Next.Data;
+
+                current.Next = current.Next.Next;
+            }
+
+            Count--;
 
             return returnValue;
         }
